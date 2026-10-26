@@ -50,6 +50,18 @@ nav{display:flex;gap:24px}nav a{text-decoration:none;font-size:.92rem}nav a:hove
 .stat:hover,.stat[aria-expanded=true]{background:#f0ece3}
 .dr{display:none;grid-column:1/-1;background:#f0ece3;padding:6px 16px 12px}
 .blk{padding-top:72px;padding-bottom:24px}
+/* about + portrait */
+.about{display:grid;grid-template-columns:5fr 6fr;gap:72px;align-items:center}
+.ph{margin:0;position:relative;isolation:isolate;max-width:440px}
+.ph img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 20%;border-radius:28px;background:#4a2f22}
+.ph:before{content:"";position:absolute;inset:16px -16px -16px 16px;border:1px solid var(--teal);border-radius:28px;z-index:-1}
+.ph figcaption{margin-top:26px}
+.facts{margin:22px 0 0;display:grid;gap:0;max-width:520px}
+.facts div{display:grid;grid-template-columns:110px 1fr;gap:12px;padding:12px 0;border-top:1px solid var(--line)}
+.facts div:last-child{border-bottom:1px solid var(--line)}
+.facts dt{margin:0;padding-top:3px}.facts dd{margin:0}
+.cf{display:flex;align-items:center;gap:36px}
+.av{flex:none;width:128px;height:128px;border-radius:50%;object-fit:cover;border:3px solid #7fd0c9}
 /* mosaic */
 .mosaic{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
 .m{display:flex;flex-direction:column;justify-content:space-between;gap:14px;border:1px solid var(--line);border-radius:10px;padding:22px;text-decoration:none;background:#fff;min-height:170px}
@@ -139,6 +151,9 @@ details>div{padding:0 16px 14px}
 .mosaic{grid-template-columns:1fr}.m{grid-column:auto!important;grid-row:auto!important}
 .tools,.split,.sg,.tl,.mx{grid-template-columns:1fr}
 .mb{display:block}
+.about{grid-template-columns:1fr;gap:44px}.ph{max-width:360px;margin-right:16px}
+.cf{flex-direction:column;align-items:flex-start;gap:20px}.av{width:96px;height:96px}
+.facts div{grid-template-columns:90px 1fr}
 nav{display:none;position:absolute;top:58px;left:0;right:0;flex-direction:column;gap:14px;padding:18px 24px;background:var(--paper);border-bottom:1px solid var(--line)}nav.open{display:flex}
 .road{height:auto;margin:16px 0 20px;padding-left:34px;border-left:3px solid var(--navy)}
 .road svg{display:none}
