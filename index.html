@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aishwarya Zoad | Technical Project Manager</title>
+<meta name="description" content="From software engineer to delivery leader. Interactive career roadmap, case studies and delivery tools.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,500;9..144,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="bar"><div class="wrap in">
+  <a class="logo" href="#top" aria-label="Home">AZ</a>
+  <button class="mb" aria-expanded="false" aria-controls="nav">Menu</button>
+  <nav id="nav"><a href="#cases">Case Studies</a><a href="#lab">Delivery Lab</a><a href="#experience">Experience</a><a href="resume.pdf">Resume</a><a href="#contact">Contact</a></nav>
+</div></header>
+
+<main id="top">
+<section class="hero wrap">
+  <div>
+    <p class="mono">Technical Project Manager · Delivery governance</p>
+    <h1>From software engineer to delivery leader.</h1>
+    <p class="lede">I lead enterprise commerce and pricing delivery across engineering, QA, product and business teams. Ten years of building, coordinating and governing delivery, with the evidence to show what I did and what I did not.</p>
+    <p class="acts"><a class="btn" href="#cases">Explore case studies</a><a class="btn ghost" href="resume.pdf">Download resume</a></p>
+    <p class="small">Open to remote Technical Project Manager, Senior TPM and Delivery Manager roles.</p>
+  </div>
+  <figure class="card">
+    <figcaption>Four Xchange sprints: committed, delivered, added</figcaption>
+    <div class="tog" id="h-tog"><button class="on" data-m="sp">Story points</button><button data-m="it">Items</button></div>
+    <div class="chart" id="h-chart"></div>
+    <div class="leg"><span class="k c">Committed</span><span class="k d">Delivered</span><span class="k a">Added after freeze</span></div>
+    <p class="read" id="h-read" aria-live="polite">Select a sprint.</p>
+    <p class="mono src">Source: sprint summaries. Added scope shown only where recorded (Sprint 17).</p>
+  </figure>
+</section>
+
+<section class="wrap proof">
+  <button class="stat" data-id="p1" aria-expanded="false"><b>10+ years</b><span>Engineering to delivery leadership</span></button>
+  <button class="stat" data-id="p2" aria-expanded="false"><b>78% → 93%</b><span>Predictability, GPIT, 12 months</span></button>
+  <button class="stat" data-id="p3" aria-expanded="false"><b>2 streams</b><span>Xchange and Sales Pricing, concurrent</span></button>
+  <button class="stat" data-id="p4" aria-expanded="false"><b>~34 tickets</b><span>Multi-LTP release to Go/No-Go</span></button>
+  <div class="dr" id="p1"><p><b class="mono">Period</b> 2016 to present. Role titles and dates are on the roadmap below.</p></div>
+  <div class="dr" id="p2"><p><b class="mono">Definition</b> Project Manager period, Dec 2022 onward. [Add how predictability was calculated and the baseline.] The 72% → 88% figure is a separate, earlier coordinator-period result and is not part of this trend.</p></div>
+  <div class="dr" id="p3"><p><b class="mono">Scale</b> Xchange across 5 Technical Leads and their teams. PriceFX with 7 developers, 4 QA, 1 BA and 1 Product Owner. This is coordination scale, not direct reports.</p></div>
+  <div class="dr" id="p4"><p><b class="mono">Scope</b> Ticket count in the release I directed through UAT, approvals, sequencing and validation. It is not an outcome claim.</p></div>
+</section>
+
+<section id="cases" class="wrap blk">
+  <p class="mono">Case studies</p><h2>Five decisions, with the evidence behind each.</h2>
+  <div class="mosaic" id="mosaic"></div>
+</section>
+
+<section id="lab" class="lab"><div class="wrap">
+  <p class="mono">Delivery lab</p><h2>Try the thinking.</h2>
+  <p class="small">Illustrative inputs only. Nothing here is live project data.</p>
+  <div class="tools">
+    <div class="tool">
+      <h3>Sprint scope simulator <em class="mono">Illustrative data</em></h3>
+      <label>Original commitment <output id="o-c"></output> SP<input id="s-c" type="range" min="10" max="100"></label>
+      <label>Delivered from original scope <output id="o-d"></output> SP<input id="s-d" type="range" min="0" max="100"></label>
+      <label>Added after freeze <output id="o-a"></output> SP<input id="s-a" type="range" min="0" max="60"></label>
+      <p class="out"><b id="r-pct"></b> of original commitment delivered<br><b id="r-tot"></b> total scope to manage</p>
+      <p class="read" id="r-msg" aria-live="polite"></p>
+      <button class="btn lt" id="s-reset">Reset</button>
+    </div>
+    <div class="tool">
+      <h3>Release readiness checker</h3>
+      <ul class="chk" id="gates">
+        <li><label><input type="checkbox"> Development complete</label></li>
+        <li><label><input type="checkbox"> QA and regression evidence available</label></li>
+        <li><label><input type="checkbox"> Business UAT sign-off recorded</label></li>
+        <li><label><input type="checkbox"> Deployment and rollback plan reviewed</label></li>
+        <li><label><input type="checkbox"> Go/No-Go decision documented</label></li>
+      </ul>
+      <p class="out"><b id="g-n">0 of 5</b> gates evidenced</p>
+      <p class="read" id="g-msg" aria-live="polite"></p>
+      <button class="btn lt" id="g-reset">Reset</button>
+    </div>
+  </div>
+</div></section>
+
+<section id="experience" class="wrap blk">
+  <p class="mono">Career growth roadmap · 2016 to future</p>
+  <h2>From building systems to leading delivery.</h2>
+  <p class="small">Select a milestone. The final stop is an aspiration, not a current role.</p>
+  <div class="road" id="road"><svg viewBox="0 0 960 280" preserveAspectRatio="none" aria-hidden="true"></svg></div>
+  <div class="stage" id="stage" aria-live="polite"></div>
+</section>
+
+<section class="wrap blk" id="lead">
+  <p class="mono">How I lead and work</p><h2>Six principles, one connected method.</h2>
+  <div class="split">
+    <ol class="pl" id="pl"></ol>
+    <div class="chain" id="chain"></div>
+  </div>
+</section>
+
+<section id="contact" class="contact"><div class="wrap">
+  <h2>Let's talk about your delivery problem.</h2>
+  <p>Open to remote Technical Project Manager, Senior TPM and Delivery Manager roles.</p>
+  <p class="acts"><a class="btn wh" href="mailto:zoadaish@gmail.com">zoadaish@gmail.com</a><a class="btn ghost-w" href="https://www.linkedin.com/in/aishwarya-zoad">LinkedIn</a><a class="btn ghost-w" href="resume.pdf">Download resume</a></p>
+</div></section>
+</main>
+<footer class="wrap foot mono">Client details generalized to "enterprise client (USA)". Internal documents are not published.</footer>
+
+<div id="case" class="case" hidden role="dialog" aria-modal="true" aria-label="Case study"><div class="wrap cin" id="case-in"></div></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
