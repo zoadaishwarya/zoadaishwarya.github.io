@@ -153,21 +153,25 @@ $(function () {
   $("#g-reset").on("click", function () { $("#gates input").prop("checked", false); gates(); }); gates();
 
   /* ===== CAREER ROADMAP ===== */
-  var X = [80, 230, 380, 540, 690, 850], d = "M0 " + STAGES[0].y;
-  var pts = $.map(STAGES, function (s, i) { return [[X[i], s.y]]; }), prev = [0, STAGES[0].y];
-  $.each(pts, function (i, p) { var h = (p[0] - prev[0]) / 2; d += " C" + (prev[0] + h) + " " + prev[1] + " " + (p[0] - h) + " " + p[1] + " " + p[0] + " " + p[1]; prev = p; });
-  d += " C" + (prev[0] + 55) + " " + prev[1] + " 905 " + prev[1] + " 960 " + prev[1];
+  var X = [38, 62, 38, 62, 38, 62], H = 790, Y = $.map(STAGES, function (s, i) { return 70 + i * 128; });
+  var d = "M" + X[0] + " 0 L" + X[0] + " " + Y[0];
+  $.each(Y, function (i, y) { if (i) { var h = (y - Y[i - 1]) / 2; d += " C" + X[i - 1] + " " + (Y[i - 1] + h) + " " + X[i] + " " + (y - h) + " " + X[i] + " " + y; } });
+  d += " L" + X[5] + " " + H;
   var NS = "http://www.w3.org/2000/svg", svg = $("#road svg")[0];
   $.each(["rd", "rc"], function (i, k) { var el = document.createElementNS(NS, "path"); el.setAttribute("class", k); el.setAttribute("d", d); svg.appendChild(el); });
   $.each(STAGES, function (i, s) {
-    $("#road").append('<button class="n ' + (s.y < 140 ? "up" : "dn") + (s.fu ? " fu" : "") + '" aria-pressed="false" data-i="' + i + '" style="left:' + X[i] / 9.6 + '%;top:' + (30 + s.y) + 'px">' + (s.fu ? "→" : i + 1) + '<em><small>' + s.p + ' · ' + s.v + '</small>' + s.t + '</em></button>');
+    $("#road").append('<button class="n ' + (X[i] < 50 ? "lf" : "rt") + (s.fu ? " fu" : "") + '" aria-pressed="false" data-i="' + i + '" style="left:' + X[i] + '%;top:' + Y[i] + 'px">' + (s.fu ? "→" : i + 1) + '<em><small>' + s.p + ' · ' + s.v + '</small>' + s.t + '</em></button>');
   });
   function stage(i) {
     var s = STAGES[i]; $(".n").attr("aria-pressed", false).eq(i).attr("aria-pressed", true);
     var links = $.map(s.c, function (k) { return '<a class="pill" href="#/' + CASES[k].s + '">Case ' + (k + 1) + ': ' + CASES[k].t + '</a>'; }).join("") || '<span class="small">No case study for this stage.</span>';
     $("#stage").toggleClass("fut", !!s.fu).html('<p class="mono">' + s.p + ' · ' + s.v + (s.fu ? ' · aspiration, not a current role' : '') + '</p><h3>' + s.t + '</h3><div class="sg"><div><h4>Role and ownership</h4><p>' + s.r + '</p><h4>Technical context</h4><p>' + s.x + '</p></div><div><h4>Challenges and decisions</h4><p>' + s.k + '</p><h4>Outcomes and evidence</h4><p>' + s.e + '</p></div></div><h4 class="mono" style="margin-top:16px">Capabilities that enabled the next stage</h4><p>' + s.g + '</p><div style="margin-top:10px">' + links + '</div>');
   }
-  $("#road").on("click", ".n", function () { stage($(this).data("i")); }); stage(4);
+  $("#road").on("click", ".n", function () {
+    stage($(this).data("i"));
+    $("#stage").stop(true, true).css("opacity", 0).animate({ opacity: 1 }, D * 1.5);
+    if (matchMedia("(max-width:860px)").matches) { $("#stage")[0].scrollIntoView({ behavior: RM ? "auto" : "smooth", block: "start" }); }
+  }); stage(4);
 
   /* ===== PRINCIPLES + CHAIN ===== */
   $.each(PR, function (i, p) {
